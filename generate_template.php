@@ -3,15 +3,15 @@
 namespace RedcapConHack\Templater;
 use ExternalModules\ExternalModules;
 use Twig\Extension\StringLoaderExtension;
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 /** @var Templater $module */
 
 require_once(__DIR__ . "/vendor/autoload.php");
 
-$loader = new Twig_Loader_Filesystem(__DIR__ . "/templates/");
-$twig = new Twig_Environment($loader);
+$loader = new FilesystemLoader(__DIR__ . "/templates/");
+$twig = new Environment($loader);
 $twig->addExtension(new StringLoaderExtension());
 
 if ($_POST) {
