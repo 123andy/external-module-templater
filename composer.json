@@ -1,5 +1,6 @@
 {
 	"require": {
-		"twig/twig": "~1.44"
+		"twig/twig": "~3",
+        "symfony/deprecation-contracts": "~2"
 	}
 }
