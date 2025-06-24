@@ -18,7 +18,7 @@ class {{ className }} extends \ExternalModules\AbstractExternalModule {
     public function injectJSMO($data = null, $init_method = null) {
         echo $this->initializeJavascriptModuleObject();
         $cmds = [
-            "const module = " . $this-getJavascriptModuleObjectName();
+            "const module = " . $this->getJavascriptModuleObjectName()
         ];
         if (!empty($data)) $cmds[] = "module.data = " . json_encode($data);
         if (!empty($init_method)) $cmds[] = "module.afterRender(module." . $init_method . ")";
@@ -45,7 +45,7 @@ class {{ className }} extends \ExternalModules\AbstractExternalModule {
                 break;
             default:
                 // Action not defined
-                throw new Exception ("Action $action is not defined");
+                throw new \Exception ("Action $action is not defined");
         }
 
         // Return is left as php object, is converted to json automatically
